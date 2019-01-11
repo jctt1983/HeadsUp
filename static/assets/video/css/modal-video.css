@@ -1,0 +1,167 @@
+@keyframes modal-video {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes modal-video-inner {
+	from {
+		transform: translate(0, 100px);
+	}
+	to {
+		transform: translate(0, 0);
+	}
+}
+
+.modal-video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1000000;
+	cursor: pointer;
+	opacity: 1;
+	animation-timing-function: ease-out;
+	animation-duration: .3s;
+	animation-name: modal-video;
+	-webkit-transition: opacity .3s ease-out;
+	-moz-transition: opacity .3s ease-out;
+	-ms-transition: opacity .3s ease-out;
+	-o-transition: opacity .3s ease-out;
+	transition: opacity .3s ease-out
+}
+
+.modal-video-close {
+	opacity: 0
+}
+
+.modal-video-close .modal-video-movie-wrap {
+	-webkit-transform: translate(0, 100px);
+	-moz-transform: translate(0, 100px);
+	-ms-transform: translate(0, 100px);
+	-o-transform: translate(0, 100px);
+	transform: translate(0, 100px)
+}
+
+.modal-video-body {
+	display: table;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.modal-video-inner {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%
+}
+
+.modal-video-movie-wrap {
+	width: 100%;
+	height: 0;
+	position: relative;
+	padding-bottom: 56.25%;
+	background-color: #333;
+	animation-timing-function: ease-out;
+	animation-duration: .3s;
+	animation-name: modal-video-inner;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+	-webkit-transition: -webkit-transform .3s ease-out;
+	-moz-transition: -moz-transform .3s ease-out;
+	-ms-transition: -ms-transform .3s ease-out;
+	-o-transition: -o-transform .3s ease-out;
+	transition: transform .3s ease-out
+}
+
+.modal-video-movie-wrap iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%
+}
+
+.modal-video-close-btn {
+	position: absolute;
+	z-index: 2;
+	top: -40px;
+	right: -40px;
+	width: 40px;
+	height: 40px;
+	background-color: transparent;
+	background-image: url('../images/close.png?v2');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	display: inline-block;
+	border: none;
+	cursor: pointer;
+}
+
+.modal-video-wrapper {
+	cursor: pointer;
+	position: relative;
+}
+
+.modal-video-wrapper>.video-preview {
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
+.modal-video-wrapper>.video-preview::before {
+	width: 100%;
+	height: 100%;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgb(0, 0, 0, 0.3);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 80px 80px;
+	background-image: url('../images/play.png');
+}
+
+.modal-video-wrapper>.video-preview>img {
+	width: 100%;
+}
+
+@media (max-width: 991px) {
+	.modal-video-close-btn {
+		top: -45px;
+		right: 0;
+		left: initial;
+		bottom: initial;
+	}
+}
+
+@media (max-width: 991px)
+ 	and (orientation: portrait) {
+	.modal-video-body {
+		max-width: 80%;
+	}
+}
+
+@media (max-width: 991px)
+ 	and (orientation: landscape) {
+	.modal-video-body {
+		max-width: 60%;
+	}
+}
+
+@media (min-width: 992px) {
+	.modal-video-body {
+		max-width: 800px;
+	}
+}
