@@ -14,7 +14,7 @@
 		self.videoParams = {};
 		self.options = _.assign({
 			animationSpeed: 300,
-			videoPlayerUrl: '/media/video/player/'
+			videoPlayerUrl: '/static/assets/video/player/'
 		}, options);
 
 		self.init();

@@ -59,7 +59,7 @@
                 preload: false,
                 html5: _.assign({}, techOptions),
                 flash: _.assign({}, techOptions),
-                techOrder: ['html5', 'flash'],
+                techOrder: ['html5'],
                 enableLowInitialPlaylist: true
             };
 

@@ -23,15 +23,15 @@
 		// preload libraries
 		if (videos.length) {
 			scripts = scripts.concat([
-				'//cdnjs.cloudflare.com/ajax/libs/video.js/6.12.1/video.min.js',
-				'//cdn.jsdelivr.net/npm/videojs-flash@2.1.1/dist/videojs-flash.min.js',
-				'//cdn.jsdelivr.net/npm/videojs-contrib-hls@5.14.1/dist/videojs-contrib-hls.min.js',
+				'//cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video.min.js',
+				// '//cdn.jsdelivr.net/npm/videojs-flash@2.1.1/dist/videojs-flash.min.js',
+				// '//cdn.jsdelivr.net/npm/videojs-contrib-hls@5.14.1/dist/videojs-contrib-hls.min.js',
 				'//cdn.jsdelivr.net/npm/videojs-contrib-quality-levels@2.0.9/dist/videojs-contrib-quality-levels.min.js',
 				'//cdn.jsdelivr.net/npm/videojs-hotkeys@0.2.22/videojs.hotkeys.min.js'
 			]);
 
 			styles = styles.concat([
-				'//cdnjs.cloudflare.com/ajax/libs/video.js/6.12.1/video-js.min.css'
+				'//cdnjs.cloudflare.com/ajax/libs/video.js/7.5.0/video-js.min.css'
 			]);
 		}
 
@@ -42,26 +42,26 @@
 		// preload custom libraries
 		if (videos.length || modalVideoLinks.length) {
 			scripts = scripts.concat([
-				'/media/video/js/video-utils.js?qt=' + time,
-				'/media/video/js/video-wrapper.js?qt=' + time,
+				'/static/assets/video/js/video-utils.js?qt=' + time,
+				'/static/assets/video/js/video-wrapper.js?qt=' + time,
 			]);
 
 			styles = styles.concat([
-				'/media/video/css/modal-video.css?qt=' + time,
+				'/static/assets/video/css/modal-video.css?qt=' + time,
 			]);
 		}
 
 		// load the library for videos
 		if (videos.length) {
 			scripts = scripts.concat([
-				'/media/video/js/video.js?' + time,
+				'/static/assets/video/js/video.js?' + time,
 			]);
 		}
 
 		// load the library for modal videos
 		if (modalVideoLinks.length) {
 			scripts = scripts.concat([
-				'/media/video/js/modal-video.js?qt=' + time,
+				'/static/assets/video/js/modal-video.js?qt=' + time,
 			]);
 		}
 
