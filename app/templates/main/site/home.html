@@ -1,8 +1,16 @@
-{% extends "main/layout/home.html" %}
+{% extends "main/layout/base.html" %}
 {% set title = _('HOME_TITLE') %}
 {% set description = _('HOME_DESCRIPTION') %}
 
-{% block full_page %}
+{% block base_style %}
+	{% include 'shared/assets/styles/lp.html' %}
+{% endblock %}
+
+{% block base_script %}
+	{% include 'shared/assets/scripts/lp.html' %}
+{% endblock %}
+
+{% block page_wrapper %}
 <div class="sliding-image">
 	<div id="fullpage">
 		<div id="slide__1" class="section">
