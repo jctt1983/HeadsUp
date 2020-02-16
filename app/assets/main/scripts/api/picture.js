@@ -39,6 +39,16 @@ export class PictureApiService extends ApiBase {
 		return this.requestUpload(options);
 	}
 
+	uploadImageData(data) {
+		const endpoint = `upload-base64`;
+
+		return this.request({
+			url: endpoint,
+			method: 'POST',
+			data: data
+		});
+	}
+
 	delete(id) {
 		const endpoint = `delete/${id}`;
 

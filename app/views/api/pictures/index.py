@@ -47,6 +47,34 @@ class PicturesApiView(FlaskView):
 
         return render_json(picture=picture)
 
+
+    @route('/upload-base64', methods=['POST'])
+    @login_required
+    def upload_base64(self):
+        data = request.json
+        post_id = data.get('post_id', 0)
+        image = data.get('image', None)
+
+        if not image or not post_id:
+            abort(400, 'API_ERROR_INVALID_FILE')
+
+        post = Post.get_by_id(post_id)
+
+        if post is None or post.is_hidden:
+            abort(404, 'API_ERROR_POST_NOT_FOUND')
+
+        picture = Picture.create()
+        picture.save_image_data(image, current_user)
+
+        # if post.cover_picture:
+        #     post.cover_picture.remove()
+        post.cover_picture_id = picture.id
+
+        # save the post
+        post.save()
+
+        return render_json(picture=picture)
+
     @route('/delete/<int:id>', methods=['POST'])
     @login_required
     def delete(self, id):

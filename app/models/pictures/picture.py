@@ -4,7 +4,7 @@ from flask_login import current_user
 from flask import url_for
 from app import sa
 from app.models import Base
-from app.helpers import ModelHelper, MutableObject, process_image_file
+from app.helpers import ModelHelper, MutableObject, process_image_file, process_image_base64
 import datetime
 import config
 import os
@@ -42,6 +42,22 @@ class Picture(Base, sa.Model, ModelHelper):
 
             # process the image file
             process_image_file(self, f)
+
+            # save the current session
+            sa.session.add(self)
+            self.save()
+        except Exception as e:
+            sa.session.rollback()
+            raise e
+
+    def save_image_data(self, image, user=None):
+        sa.session.begin(subtransactions=True)
+        try:
+            # associate this picture with the user
+            self.user_id = user.id if user else None
+
+            # process the image file
+            process_image_base64(self, image)
 
             # save the current session
             sa.session.add(self)

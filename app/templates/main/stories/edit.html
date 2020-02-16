@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block page_wrapper %}
-<div id="story-editor-page" class="container-wrap-editor" escape-vuejs>
+<div id="story-editor-page" class="story-editor-wrapper" escape-vuejs>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container clearfix">
 			<div class="pull-left">
@@ -28,8 +28,32 @@
 	</nav>
 	<div class="container story-container">
 		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="cover-picture">
+			<div class="cover-picture-wrapper col-md-12 col-sm-12 col-xs-12">
+				<div class="cover-picture-cropper-wrapper clearfix">
+					<div class="cover-picture-cropper clearfix"></div>
+
+					<div class="cover-picture-cropper-action clearfix">
+						<div class="pull-left">
+							<button class="btn btn-primary cover-picture-rotate-left">
+								<i class="glyphicon glyphicon-repeat left"></i>
+							</button>
+							<button class="btn btn-primary cover-picture-rotate-right">
+								<i class="glyphicon glyphicon-repeat right"></i>
+							</button>
+						</div>
+
+						<div class="pull-right">
+							<button id="cover-picture-cancel" class="btn btn-danger ">
+								{{ _('BTN_CANCEL_LBL') }}
+							</button>
+
+							<button id="cover-picture-result" class="btn btn-primary">
+								<i class="glyphicon glyphicon-cloud-upload"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="cover-picture" class="clearfix">
 					<div class="cover-picture-panel">
 						<span class="update"><i class="glyphicon glyphicon-refresh"></i></span>
 						<span class="delete" data-target="#cover_picture_id">
@@ -102,4 +126,12 @@
 	{% if language != 'en' %}
 	<script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/balloon-block/translations/{{ language }}.js"></script>
 	{% endif %}
+{% endblock %}
+
+{% block after_script %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.js"></script>
+{% endblock %}
+
+{% block after_style %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.css" />
 {% endblock %}
