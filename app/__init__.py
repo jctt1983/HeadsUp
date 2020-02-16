@@ -19,12 +19,6 @@ from flask_socketio import SocketIO  # noqa
 socketio = SocketIO(app)
 
 # -------------------------------------------------------------------------
-# Session Configuration
-# -------------------------------------------------------------------------
-from flask_session import Session  # noqa
-Session(app)
-
-# -------------------------------------------------------------------------
 # Load celery
 # -------------------------------------------------------------------------
 from celery import Celery  # noqa
@@ -53,6 +47,12 @@ login_manager = LoginManagerHelper(app)
 # -------------------------------------------------------------------------
 from flask_mail import Mail  # noqa
 mail = Mail(app)
+
+# -------------------------------------------------------------------------
+# Session Configuration
+# -------------------------------------------------------------------------
+from flask_session import Session  # noqa
+session = Session(app)
 
 # -------------------------------------------------------------------------
 # Load the CSRF Protection
